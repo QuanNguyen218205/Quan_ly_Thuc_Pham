@@ -21,6 +21,7 @@ Quan_ly_Thuc_Pham/
 ├── README.md                              # Hướng dẫn tổng quan dự án
 ├── .gitignore                             # Cấu hình bỏ qua file rác, build & node_modules
 └── giaodiendukien/                        # Toàn bộ mã nguồn & tài liệu đặc tả
+    ├── 0_CAI_DAT_LAN_DAU (RUN_FIRST).bat  # Cài đặt tự động dependencies lần đầu khi mới clone
     ├── 1_MO_GIAO_DIEN_DESKTOP_SERVER.bat  # 1-Click mở Desktop Server
     ├── 2_MO_GIAO_DIEN_MOBILE_CLIENT.bat   # 1-Click mở Mobile Client
     ├── 3_MO_CA_HAI_GIAO_DIEN.bat          # 1-Click mở cả hai ứng dụng
@@ -43,7 +44,9 @@ Quan_ly_Thuc_Pham/
 - **Node.js**: Phiên bản 18+ (khuyên dùng Node 20 LTS)
 - **Trình duyệt**: Chrome, Edge hoặc trình duyệt hiện đại bất kỳ
 
-### 1. Cài đặt Dependencies
+### 1. Cài đặt Dependencies (Chỉ cần chạy 1 lần sau khi Clone)
+- **Cách nhanh nhất**: Nhấp đúp chuột vào file **`giaodiendukien/0_CAI_DAT_LAN_DAU (RUN_FIRST).bat`** để tự động kiểm tra Node.js và chạy `npm install`.
+- **Hoặc dùng Terminal**:
 ```bash
 cd giaodiendukien
 npm install
