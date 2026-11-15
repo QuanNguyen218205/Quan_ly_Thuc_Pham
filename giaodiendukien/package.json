@@ -1,0 +1,33 @@
+{
+  "name": "quan-ly-thuc-pham-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI Prototype Hệ thống Quản lý Thực phẩm Gia đình & Đề xuất FEFO (Desktop Server & Mobile Client)",
+  "workspaces": [
+    "shared-sim",
+    "desktop-server",
+    "mobile-client"
+  ],
+  "scripts": {
+    "dev:desktop": "npm run dev --workspace=@food-mgmt/desktop-server",
+    "dev:mobile": "npm run dev --workspace=@food-mgmt/mobile-client",
+    "build:sim": "npm run build --workspace=@food-mgmt/shared-sim",
+    "build:desktop": "npm run build --workspace=@food-mgmt/desktop-server",
+    "build:mobile": "npm run build --workspace=@food-mgmt/mobile-client",
+    "build": "npm run build:sim && npm run build:desktop && npm run build:mobile",
+    "typecheck": "npm run typecheck --workspace=@food-mgmt/shared-sim && npm run typecheck --workspace=@food-mgmt/desktop-server && npm run typecheck --workspace=@food-mgmt/mobile-client",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.11",
+    "vitest": "^2.1.8"
+  }
+}
