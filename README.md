@@ -20,6 +20,7 @@ Dự án cung cấp giải pháp toàn diện cho hộ gia đình quản lý kho
 Quan_ly_Thuc_Pham/
 ├── README.md                              # Hướng dẫn tổng quan dự án
 ├── .gitignore                             # Cấu hình bỏ qua file rác, build & node_modules
+├── Documents/                             # Hồ sơ BTL, file script CSDL MySQL & sơ đồ ma trận luồng
 └── giaodiendukien/                        # Toàn bộ mã nguồn & tài liệu đặc tả
     ├── 0_CAI_DAT_LAN_DAU (RUN_FIRST).bat  # Cài đặt tự động dependencies lần đầu khi mới clone
     ├── 1_MO_GIAO_DIEN_DESKTOP_SERVER.bat  # 1-Click mở Desktop Server
@@ -76,9 +77,10 @@ npm test
 ---
 
 ## 📋 Tài Liệu & Thiết Kế
-- Toàn bộ hồ sơ báo cáo Word, file script CSDL MySQL `food_management.sql` và sơ đồ luồng được lưu tại: [`giaodiendukien/docs/`](./giaodiendukien/docs/)
-- Đặc tả chi tiết 27 màn hình và các luồng nghiệp vụ: [`giaodiendukien/Thiet_ke_cau_truc_giao_dien_du_kien.md`](./giaodiendukien/Thiet_ke_cau_truc_giao_dien_du_kien.md)
-- Kế hoạch phân rã chức năng Spec Kit: [`giaodiendukien/specs/001-ui-prototype/`](./giaodiendukien/specs/001-ui-prototype/)
+- **Hồ sơ dự án gốc & CSDL**: Lưu tại thư mục [`Documents/`](./Documents/) (Báo cáo Word BTL, file script CSDL MySQL `food_management.sql`, các sơ đồ ma trận kiến trúc)
+- **Hồ sơ kỹ thuật UI Prototype**: Lưu tại [`giaodiendukien/docs/`](./giaodiendukien/docs/)
+- **Đặc tả chi tiết 27 màn hình và các luồng nghiệp vụ**: [`giaodiendukien/Thiet_ke_cau_truc_giao_dien_du_kien.md`](./giaodiendukien/Thiet_ke_cau_truc_giao_dien_du_kien.md)
+- **Kế hoạch phân rã chức năng Spec Kit**: [`giaodiendukien/specs/001-ui-prototype/`](./giaodiendukien/specs/001-ui-prototype/)
 
 ---
 
