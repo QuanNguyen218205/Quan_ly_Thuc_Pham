@@ -4,6 +4,20 @@ Thư mục này chứa **toàn bộ giao diện dự kiến** của hệ thống
 
 ---
 
+## ⚡ Hướng dẫn cho người mới Clone về máy (Khắc phục lỗi `ERR_CONNECTION_REFUSED`)
+
+Nếu bạn hoặc bạn bè vừa tải/clone dự án từ GitHub về máy và mở trình duyệt thấy báo:
+> `This site can't be reached - localhost refused to connect (ERR_CONNECTION_REFUSED)`
+
+Đó là vì **Git không lưu thư mục `node_modules`**, máy mới clone về chưa có thư viện và chưa bật server cục bộ. Hãy làm 3 bước sau:
+
+1. **Bước 1**: Đảm bảo máy tính đã cài đặt **Node.js** (nếu chưa có, tải bản LTS tại [nodejs.org](https://nodejs.org/)).
+2. **Bước 2**: Nhấp đúp vào file **`0_CAI_DAT_LAN_DAU (RUN_FIRST).bat`** (hoặc mở terminal tại thư mục này gõ `npm install`) để tải thư viện về máy (chỉ cần làm 1 lần duy nhất).
+3. **Bước 3**: Nhấp đúp vào **`1_MO_GIAO_DIEN_DESKTOP_SERVER.bat`** hoặc **`2_MO_GIAO_DIEN_MOBILE_CLIENT.bat`** để chạy giao diện.
+   *(Lưu ý: Giữ nguyên cửa sổ đen cmd đang chạy, đừng tắt đi thì trình duyệt mới kết nối được).*
+
+---
+
 ## 1. Cách mở và xem giao diện nhanh nhất (1 Click)
 
 Chỉ cần **nhấp đúp chuột (Double Click)** vào các file `.bat` trong thư mục này:
@@ -25,11 +39,13 @@ npm test             # Chạy kiểm thử tự động
 
 ```text
 giaodiendukien/
+├── 0_CAI_DAT_LAN_DAU (RUN_FIRST).bat       # File cài đặt thư viện tự động lần đầu
 ├── 1_MO_GIAO_DIEN_DESKTOP_SERVER.bat      # File chạy nhanh Desktop Server
 ├── 2_MO_GIAO_DIEN_MOBILE_CLIENT.bat       # File chạy nhanh Mobile Client
 ├── 3_MO_CA_HAI_GIAO_DIEN.bat              # File chạy nhanh cả 2 ứng dụng
 ├── README.md                              # Hướng dẫn tổng quan này
 ├── package.json                           # Cấu hình npm workspaces
+├── package-lock.json
 ├── tsconfig.base.json                     # Cấu hình TypeScript
 ├── vitest.config.ts                       # Cấu hình test Vitest
 ├── CHANGELOG.md                           # Nhật ký thay đổi phiên bản
