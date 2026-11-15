@@ -1,0 +1,528 @@
+/* ==========================================================================
+   DESKTOP SERVER DESIGN TOKENS — Concept A: Culinary Slate Workbench
+   Mode: Operate (Data Management Workbench + Server Monitor)
+   Target: Quan_ly_Thuc_Pham/desktop-server
+   Zero violet/purple tokens. WCAG AA verified against #FFFFFF, #F4F6F8, #111827.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* ── 1. TYPOGRAPHY (Strictly 2 Font Families) ── */
+  --font-sans: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, ui-monospace, monospace;
+
+  /* Desktop compact workbench scale (13px base per 34-desktop-app-design) */
+  --text-xs:   11px;  /* Status bar, micro-badges, kbd hints */
+  --text-sm:   12px;  /* Table headers, secondary metadata, helper copy */
+  --text-base: 13px;  /* Default workbench text, table cells, inputs, nav */
+  --text-md:   14px;  /* Card titles, drawer section headers */
+  --text-lg:   16px;  /* Panel headers, modal titles */
+  --text-xl:   20px;  /* Main view titles */
+  --text-2xl:  26px;  /* KPI hero figures */
+
+  --leading-tight:  1.25;
+  --leading-snug:   1.38;
+  --leading-normal: 1.48;
+
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ── 2. SURFACES & WORKBENCH CHROME ── */
+  --bg-canvas:            #F4F6F8; /* Daylight Workbench */
+  --bg-surface:           #FFFFFF; /* Cards, Data Grid, Drawer, Modals */
+  --bg-subtle:            #F8FAFC; /* Sticky table header, toolbars, filter bar */
+  --bg-muted:             #F1F5F9; /* Disabled inputs, neutral wells */
+  --bg-hover:             #EEF2F6; /* Row/control hover — distinct from selected */
+  --bg-selected:          #E6F4F1; /* Active row selection */
+  --bg-selected-inactive: #EAEFF4; /* Selected row when pane unfocused */
+
+  /* Dark Chrome Surfaces (Window Bar, 228px Sidebar Rail, Server Console, Status Bar) */
+  --bg-titlebar:          #0F172A; /* Crisp Slate */
+  --bg-sidebar:           #111827; /* Slate Charcoal */
+  --bg-sidebar-hover:     #1E293B;
+  --bg-sidebar-active:    #0F766E; /* Botanical Deep Teal */
+  --bg-statusbar:         #0F172A;
+  --bg-console:           #0F172A; /* Packet Trace Log background */
+  --bg-console-elevated:  #1E293B;
+
+  /* ── 3. TEXT INK ── */
+  --text-primary:      #0F172A; /* 17.85:1 on #FFFFFF, 16.48:1 on #F4F6F8 */
+  --text-secondary:    #334155; /* 10.35:1 on #FFFFFF */
+  --text-muted:        #526071; /* 6.42:1 on #FFFFFF, 5.93:1 on #F4F6F8 */
+  --text-subtle:       #64748B; /* Placeholders & >=14px icons only (4.76:1 on #FFF) */
+  --text-inverse:      #FFFFFF;
+  --text-chrome:       #E2E8F0; /* 14.48:1 on #0F172A */
+  --text-chrome-muted: #94A3B8; /* 6.92:1 on #111827 */
+  --text-chrome-teal:  #5EEAD4; /* 11.99:1 on #111827 */
+
+  /* ── 4. BORDERS (Crisp 1px Hairlines) ── */
+  --border-hairline:      #E2E8F0;
+  --border-strong:        #CBD5E1;
+  --border-chrome:        #1E293B;
+  --border-chrome-subtle: #334155;
+  --border-focus:         #0F766E;
+
+  /* ── 5. PRIMARY BRAND ACCENT (Botanical Deep Teal — Zero Violet/Purple) ── */
+  --accent:             #0F766E; /* 5.47:1 white-on-accent & accent-on-white */
+  --accent-hover:       #115E59; /* 7.58:1 */
+  --accent-active:      #134E4A;
+  --accent-tint:        #F0FDFA;
+  --accent-tint-strong: #CCFBF1;
+  --accent-border:      #99F6E4;
+  --focus-ring:         0 0 0 2px #FFFFFF, 0 0 0 4px #0F766E;
+
+  /* ── 6. SEMANTIC STATUS TOKENS (WCAG AA Verified) ── */
+  /* Fresh / Active / Safe / Priority Low */
+  --status-fresh-ink:    #166534; /* 6.49:1 on #DCFCE7 */
+  --status-fresh-base:   #15803D; /* 4.57:1 on #DCFCE7, 5.02:1 on #FFFFFF */
+  --status-fresh-bg:     #DCFCE7;
+  --status-fresh-border: #86EFAC;
+
+  /* Urgent / Warning / Expiring Soon / Low Stock / Priority Medium */
+  --status-urgent-ink:    #92400E; /* 6.37:1 on #FEF3C7 */
+  --status-urgent-base:   #B45309; /* 4.51:1 on #FEF3C7, 5.02:1 on #FFFFFF */
+  --status-urgent-bg:     #FEF3C7;
+  --status-urgent-border: #FCD34D;
+
+  /* Expired / Critical / Danger / Priority High */
+  --status-expired-ink:    #991B1B; /* 6.80:1 on #FEE2E2 */
+  --status-expired-base:   #B91C1C; /* 5.30:1 on #FEE2E2, 6.47:1 on #FFFFFF */
+  --status-expired-hover:  #991B1B;
+  --status-expired-bg:     #FEE2E2;
+  --status-expired-border: #FCA5A5;
+
+  /* Info / Network Sync */
+  --status-info-ink:    #1E40AF; /* 8.01:1 on #EFF6FF */
+  --status-info-base:   #1D4ED8; /* 5.49:1 on #DBEAFE, 6.70:1 on #FFFFFF */
+  --status-info-bg:     #DBEAFE;
+  --status-info-border: #93C5FD;
+
+  /* Empty (Đã hết — qty = 0) */
+  --status-empty-ink:    #334155; /* 9.45:1 on #F1F5F9 */
+  --status-empty-bg:     #F1F5F9;
+  --status-empty-border: #CBD5E1;
+
+  /* Cancelled (Đã hủy — soft-deleted, history preserved) */
+  --status-cancelled-ink:    #475569; /* 6.15:1 on #E2E8F0 */
+  --status-cancelled-bg:     #E2E8F0;
+  --status-cancelled-border: #CBD5E1;
+
+  /* Dark Chrome Status Indicators (#0F172A / #111827) */
+  --chrome-live: #34D399; /* 9.29:1 on #0F172A */
+  --chrome-warn: #FCD34D; /* 12.38:1 on #0F172A */
+  --chrome-crit: #FDA4AF; /* 9.44:1 on #0F172A */
+  --chrome-info: #60A5FA;
+
+  /* ── 7. DATAVIZ TOKENS (Validated via dataviz/scripts/validate_palette.js) ── */
+  --viz-surface:       #FFFFFF;
+  --viz-gridline:      #E2E8F0; /* Solid hairline, never dashed */
+  --viz-axis:          #CBD5E1;
+  --viz-series-1:      #0D9488; /* Botanical Teal — Stock In / Fridge */
+  --viz-series-2:      #D95F26; /* Terracotta Amber — Stock Out / Outside Fridge */
+  --viz-series-3:      #1D68D8; /* Cobalt Blue — Inventory Adjustment / Balance */
+  --viz-series-4:      #C43737; /* Coral Crimson — Disposed / Waste */
+  --viz-series-5:      #C58100; /* Harvest Ochre — Near Threshold / Secondary */
+  --viz-series-6:      #106A3A; /* Pantry Forest — Optimal Baseline */
+
+  /* Ordinal Teal Ramp (--ordinal validated >= 2.0:1 light-end) */
+  --viz-ordinal-1: #42BFB0;
+  --viz-ordinal-2: #1BA595;
+  --viz-ordinal-3: #0D8A7D;
+  --viz-ordinal-4: #0E6E66;
+  --viz-ordinal-5: #0D524C;
+
+  /* Dark Console Chart Tokens (validated against #111827) */
+  --viz-dark-1: #16A090;
+  --viz-dark-2: #DB612B;
+  --viz-dark-3: #3E80E4;
+  --viz-dark-4: #D44242;
+  --viz-dark-5: #C28800;
+  --viz-dark-6: #117841;
+
+  /* ── 8. LAYOUT, DENSITY & SPACING (4px grid) ── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+
+  --titlebar-h:           36px;
+  --simbar-h:             38px;
+  --toolbar-h:            40px;
+  --statusbar-h:          26px;
+  --sidebar-w:           228px; /* 228px Desktop Nav Rail */
+  --sidebar-collapsed-w:  56px;
+  --drawer-w:            360px; /* DSK-03-D Slide-in Detail Drawer */
+  --row-h:                34px; /* Dense table row */
+  --row-h-compact:        28px;
+  --control-h:            30px;
+  --control-h-sm:         26px;
+
+  /* Fixed Action Button Widths (prevent layout shift during spinner swap) */
+  --btn-w-sm:  92px;
+  --btn-w-md: 128px;
+  --btn-w-lg: 164px;
+
+  /* ── 9. SHAPE & ELEVATION ── */
+  --radius-xs:   3px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-pill: 9999px;
+
+  --shadow-xs:      0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:      0 2px 6px rgba(15, 23, 42, 0.08);
+  --shadow-drawer:  -8px 0 24px rgba(15, 23, 42, 0.10);
+  --shadow-popover: 0 10px 28px rgba(15, 23, 42, 0.14), 0 0 0 1px var(--border-hairline);
+  --shadow-modal:   0 20px 44px rgba(15, 23, 42, 0.22);
+
+  /* ── 10. Z-INDEX LAYERING ── */
+  --z-base:           1;
+  --z-sticky:        20; /* Sticky headers, simbar */
+  --z-drawer:        40; /* DSK-03-D right detail drawer */
+  --z-popover:       60; /* Dropdowns, context menus, chart tooltips */
+  --z-tray:          70; /* DSK-M06 System Tray Popover */
+  --z-modal-backdrop:80;
+  --z-modal:         90; /* DSK-M01..DSK-M05 */
+  --z-toast:        100;
+
+  /* ── 11. MOTION & IN-FLIGHT TIMING ── */
+  --ease-standard:      cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:           120ms;
+  --dur-normal:         180ms;
+  --dur-drawer:         200ms;
+  --spinner-defer-delay:200ms; /* Defer visible spinner ~200ms for crisp local actions */
+}
+
+/* ── BASE RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── TYPOGRAPHY HELPERS ── */
+.t-view-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+.t-panel-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+
+.t-card-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+
+.t-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.t-meta {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-snug);
+  color: var(--text-muted);
+}
+
+.t-micro {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--text-muted);
+}
+
+/* Tabular monospace figures for item_code, dates, IP:Port, table columns, packet logs */
+.mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Proportional figures for standalone KPI / hero numbers per dataviz rules */
+.kpi-num {
+  font-family: var(--font-sans);
+  font-variant-numeric: proportional-nums;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+}
+
+/* ── STATUS BADGES (Pair with icon/dot + text label; never color alone) ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 2px 8px;
+  min-height: 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.badge-fresh {
+  color: var(--status-fresh-ink);
+  background-color: var(--status-fresh-bg);
+  border-color: var(--status-fresh-border);
+}
+
+.badge-urgent {
+  color: var(--status-urgent-ink);
+  background-color: var(--status-urgent-bg);
+  border-color: var(--status-urgent-border);
+}
+
+.badge-expired {
+  color: var(--status-expired-ink);
+  background-color: var(--status-expired-bg);
+  border-color: var(--status-expired-border);
+}
+
+.badge-empty {
+  color: var(--status-empty-ink);
+  background-color: var(--status-empty-bg);
+  border-color: var(--status-empty-border);
+}
+
+.badge-cancelled {
+  color: var(--status-cancelled-ink);
+  background-color: var(--status-cancelled-bg);
+  border-color: var(--status-cancelled-border);
+  text-decoration: line-through;
+}
+
+.badge-info {
+  color: var(--status-info-ink);
+  background-color: var(--status-info-bg);
+  border-color: var(--status-info-border);
+}
+
+/* ── BUTTONS (Operate-mode discipline + Quiet Ghost Cancel + Deferred Spinner) ── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--control-h);
+  padding: 0 var(--sp-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color var(--dur-fast) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard),
+              color var(--dur-fast) var(--ease-standard),
+              opacity var(--dur-fast) var(--ease-standard);
+}
+
+.btn-sm {
+  height: var(--control-h-sm);
+  padding: 0 var(--sp-2);
+  font-size: var(--text-sm);
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+/* Fixed width modifiers prevent layout shift when swapping text <-> spinner */
+.btn-fixed-sm { width: var(--btn-w-sm); flex-shrink: 0; }
+.btn-fixed-md { width: var(--btn-w-md); flex-shrink: 0; }
+.btn-fixed-lg { width: var(--btn-w-lg); flex-shrink: 0; }
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.btn-primary:active:not(:disabled) {
+  background-color: var(--accent-active);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+}
+
+/* Quiet Ghost button — strictly for Cancel / Dismiss / Close (never destructive red) */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--bg-muted);
+  color: var(--text-primary);
+}
+.btn-ghost:active:not(:disabled) {
+  background-color: var(--bg-hover);
+}
+
+/* Danger button — reserved strictly for confirmed destructive actions */
+.btn-danger {
+  background-color: var(--status-expired-base);
+  color: var(--text-inverse);
+  border-color: var(--status-expired-base);
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--status-expired-hover);
+  border-color: var(--status-expired-hover);
+}
+
+/* Deferred loading spinner (~200ms fade-in prevents flicker on instant local actions) */
+@keyframes wb-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wb-defer-reveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  opacity: 0;
+  animation:
+    wb-spin 700ms linear infinite,
+    wb-defer-reveal 120ms ease var(--spinner-defer-delay) forwards;
+}
+
+/* ── SURFACE PRIMITIVES ── */
+.hairline-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.table-dense {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+}
+
+.table-dense th {
+  height: var(--row-h);
+  padding: 0 var(--sp-3);
+  background-color: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table-dense td {
+  height: var(--row-h);
+  padding: 6px var(--sp-3);
+  border-bottom: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.table-dense tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
+.table-dense tbody tr.row-selected {
+  background-color: var(--bg-selected);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
